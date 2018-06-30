@@ -2,6 +2,8 @@
 title: Part 4 - Introducing permissioning
 ---
 
+TODO
+
 Permissionning contract:
 ```solidity
 pragma solidity ^0.4.11;

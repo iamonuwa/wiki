@@ -20,14 +20,13 @@ In the following steps of the tutorial, `./target/release/` will be omitted for 
 
 ## Create and configure the users' nodes
 
-In this tutorial, all nodes will run on 1 single machine. We will need to handle the networking ports carefully.
-
-To make things a little easier, we will make sure to run Alice, Bob or Charlie's node only one at a time.
+In this tutorial, all nodes will run on 1 single machine. We will need to handle the networking ports carefully to avoid conflicts.
 
 To keep a better overview, we will use TOML files to handle each node's configuration.
-Create a directory in to store all the configuration files at one place.
+Create a directory to store all the configuration files at one place.
 
-All the nodes of this tutorial will run the [Private development chain](Private-development-chain). To keep things simple, we will share the same node for Alice, Bob, and Charlie as the users do not need to have their node up and running simultaneously.
+All the nodes of this tutorial will run the [Private development chain](Private-development-chain).
+To make the configuration a little easier, Alice, Bob or Charlie's node will only run one at a time. They will share the same `users.toml` configuration file as the nodes will not be up and running simultaneously.
 Create the file `users.toml` with the following content:
 
 ```toml
@@ -51,7 +50,7 @@ port = 30300
 
 We can now create an account for Alice, Bob, and Charlie using the passwords: `alicepwd`, `bobpwd` and `charliepwd`.
 
-To do this, simply run 3 times `parity --config users.toml account new` using the passwords given above.
+To do this, simply run `parity --config users.toml account new` using the passwords given above starting with Alice and repeat the operation for Bob and Charlie.
 ```bash
 Loading config file from users.toml
 Please note that password is NOT RECOVERABLE.
@@ -60,13 +59,14 @@ Repeat password: # type again
 0xe5a4b6f39b4c3e7203ca8caeecbad58d8f29b046
 ```
 It will give you each time the address of the desired user. Make sure to store them.
-You now have 3 accounts for your 3 users, in my case:
+You now have 3 accounts for your 3 users, we will use these addresses in this tutorial:
 
 | Name    	| Password   	| Address                                    	|
 |---------	|------------	|--------------------------------------------	|
 | Alice   	| alicepwd   	| 0xe5a4b6f39b4c3e7203ca8caeecbad58d8f29b046 	|
 | Bob     	| bobpwd     	| 0xfeacd0d28fd158ba2d3adb6d69d20c723214edc9 	|
 | Charlie 	| charliepwd 	| 0xdab0055e3abb40d7281b058bb5e6966c50582951 	|
+
 
 ## Create and configure the Secret Store nodes
 
@@ -118,8 +118,8 @@ port = 8011 # port used to communicated with other Secret Store nodes
 path = "db.ss1/secretstore"
 ```
 
-This configuration file is not complete yet but it will allow us to create an account for our first node.
-Run `parity --config ss1.toml account new` with the password `ss1pwd` to create an account for our first node.
+This configuration file is not complete yet but it allows us to create an account for our first node.
+Run `parity --config ss1.toml account new` with the password `ss1pwd` to create an account for our first Secret Store node.
 ```bash
 Loading config file from users.toml
 Please note that password is NOT RECOVERABLE.
@@ -128,9 +128,9 @@ Repeat password: # type again
 0x93f22c0fa2e4e0750669add48dd8d9dfb8af36f4
 ```
 
-We will need to create a password file also for the account to be autonomously usable by the Secret Store node. 
+We will need to create a password file also for the account to be autonomously usable by the Secret Store node to sign messages. 
 
-Run the folowing command to create a file named `ss1.pwd` with `ss1pwd` in it:
+Run the folowing command to create a file named `ss1.pwd` containing the password `ss1pwd`:
 
 ```bash
  echo "ss1pwd" > ss1.pwd
@@ -273,7 +273,7 @@ Repeat password: # type again
 Copy the given address, this will be the account ss2 will use to sign its messages.
 We will need to create a password file also for the account to be autonomously usable by the Secret Store node. 
 
-Run the folowing command to create a file named `ss2.pwd` with `ss2pwd` in it:
+Run the folowing command to create a file named `ss2.pwd` containing the password `ss2pwd`:
 
 ```bash
  echo "ss2pwd" > ss2.pwd
@@ -348,7 +348,7 @@ Repeat password: # type again
 
 We will need to create a password file also for the account to be autonomously usable by the Secret Store node. 
 
-Run the folowing command to create a file named `ss3.pwd` with `ss3pwd` in it:
+Run the folowing command to create a file named `ss3.pwd` containing the password `ss3pwd`:
 
 ```bash
  echo "ss3pwd" > ss3.pwd
@@ -443,7 +443,8 @@ Loading config file from ss3-no-rpc.toml
 
 Most interestingly, `2/25 peers` means that this node is connected with the 2 others on the blockchain.
 
-Here is an overview of the ports used by each node of the system we just configured. Note that each user has the same ports as they will use the same node (not at the same time though). The RPC HTTP API port (8545) gives access to the Parity client's internal RPC API methods. SS1 exposes an HTTP API the users will use later on.
+## Network overview
+Here is an overview of the ports used by each node of the system configured in this section. Note that each user has the same ports as they will use the same node (not at the same time though). The RPC HTTP API port (8545) gives access to the Parity client's internal RPC API methods. SS1 exposes an HTTP API the users will use later on.
 ![system port overview](images/ss-overview-1.jpg)
 
 |[ < Previous Step (Tutorial overview)](Secret-Store-Tutorial-overview) | [Next Step (Alice encrypts the secret document) > ](Secret-Store-Tutorial-2)|
