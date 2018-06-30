@@ -1,53 +1,6 @@
 ---
-title: Secret Store Tutorial Overview
+title: Part 4 - Introducing permissioning
 ---
-
-In this tutorial, we will learn step by step how to setup a Secret Store with 3 nodes and use it for a simple use case:
-
-Alice has a confidential document stored locally on her hard-drive. She would like to encrypt it, store the encryption key in a secure way and eventually share the document later on.
-Alice decides to share this encrypted document with Bob and Bob only.
-
-To keep things simple we will work on a [Private development chain](Private-development-chain) but the Secret Store nodes are meant to be connected to and synchronize any blockchain (Private or Public).
-
-The overall picture of this tutorial is the following:
-- 3 Secret Store nodes (each with an account)
-- 3 regular user accounts (Alice, Bob and Charlie)
-![system overview](images/ss-overview-0.jpg)
-- Each entity on this picture is running a node on the same blockchain. Interactions with the blockchain are not represented on this diagram.
-- The nodes part of the secret store are connected with each other using a secure connection (blue lines).
-- The Secret Store node 1 (SS1) has an HTTP interface open to the word that Alice, Bob and Charlie will use (orange lines).
-- Alice will send an encrypted document to Bob per email (gray line).
-
-
-The tutorial is partitioned in the following steps:
-- [Configuring each node](Secret-Store-Tutorial-1.md)
--- [Build Parity with the Secret Store feature]
--- [Create and configure the users nodes]
--- [Create and configure the Secret Store nodes]
-
-
-
-[Next Step (Configuring each node) > ](Secret-Store-Tutorial-1)
-
-
-
-2 accounts: Alice and Bob
- Alice has a document, encrypts it with a specific key given by the SS, transmit the encrypted document offline.
-
-
-Alice: alicepwd
-0xe5a4b6f39b4c3e7203ca8caeecbad58d8f29b046
-
-Bob: bobpwd
-0xfeacd0d28fd158ba2d3adb6d69d20c723214edc9
-
-Charlie: charliepwd
-0xdab0055e3abb40d7281b058bb5e6966c50582951
-
-
-#### 5.  Bob is given access to the document key (Permissionning)
-Someday she decides to give Bob an access to the document && uses permissioning contract for this and send the encrypted document.
-
 
 Permissionning contract:
 ```solidity
@@ -113,4 +66,6 @@ Date: Thu, 28 Jun 2018 16:06:44 GMT
 
 "\"Consensus unreachable\""
 ```
+
+|[ < Previous Step (Bob retrieves the document's key)](Secret-Store-Tutorial-3)|
 
