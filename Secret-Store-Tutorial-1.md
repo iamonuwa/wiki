@@ -4,7 +4,7 @@ title: Part 1 - Configuring each node
 
 ## Enable the Secret Store feature of Parity
 
-Per default, Parity Client is built without the Secret Store. To enable it, you need to build it from the sources and enable the feature.
+Per default, Parity Ethereum client is built without the Secret Store feature. To enable it, you need to build it from the sources and specifically enable the Secret Store.
 
 - Make sure you have all the [build dependencies](https://github.com/paritytech/parity/#build-dependencies).
 - Run
@@ -107,14 +107,14 @@ disable_periodic = true
 
 [secretstore]
 disable = false
-disable_http = false # ss1 is open for users to send http requests
-http_interface = "local"
-http_port = 8010 # users will need to use this port
-acl_contract = "none" # no permissionning contract used yet
+disable_http = false      # This node will expose a Secret Store HTTP API
+http_interface = "local"  # The HTTP API is available locally only
+http_port = 8010          # The Secret Store HTTP API is available at this port
+acl_contract = "none"     # Insecure, will be changed later on
 server_set_contract = "none"
 nodes = []
 interface = "local"
-port = 8011 # port used to communicated with other Secret Store nodes
+port = 8011               # port used to communicated with other Secret Store nodes
 path = "db.ss1/secretstore"
 ```
 
@@ -253,7 +253,7 @@ disable_periodic = true
 
 [secretstore]
 disable = false
-disable_http = true # Secret Store nodes 2 and 3 are not accessibles from the outside
+disable_http = true   # Secret Store nodes 2 and 3 are not accessibles from the outside
 acl_contract = "none" # no permissionning contract used yet
 server_set_contract = "none"
 nodes = []
@@ -328,7 +328,7 @@ disable_periodic = true
 
 [secretstore]
 disable = false
-disable_http = true # Secret Store nodes 2 and 3 are not accessibles from the outside
+disable_http = true   # Secret Store nodes 2 and 3 are not accessibles from the outside
 acl_contract = "none" # no permissionning contract used yet
 server_set_contract = "none"
 nodes = []
@@ -418,7 +418,7 @@ Find [here](https://github.com/Tbaut/Secret-Store-Tutorial-files/tree/master/no-
 You can now launch all the Secret Store nodes with the updated configuration. You might see some errors `'Connection refused (os error 111)' when establishing outbound connection with 127.0.0.1:8013` when launching node 1 and 2 because not all nodes are online, but once they are all up, you should see logs like this:
 ```bash
 $ ~/paritytech/parity/target/release/parity --config ss3.toml
-Loading config file from ss3-no-rpc.toml
+Loading config file from ss3.toml
 2018-06-29 22:26:46  Starting Parity/v1.12.0-unstable-458afcd-20180620/x86_64-linux-gnu/rustc1.26.1
 2018-06-29 22:26:46  Keys path db.ss3/keys/DevelopmentChain
 2018-06-29 22:26:46  DB path db.ss3/chains/DevelopmentChain/db/1484bce8c021f2ca
@@ -428,7 +428,7 @@ Loading config file from ss3-no-rpc.toml
 2018-06-29 22:26:46  Configured for DevelopmentChain using InstantSeal engine
 2018-06-29 22:26:46  Starting SecretStore node: 0x7b42943621c70020e62163ff24cc57366d820d5280495c8d9088b9a6bafbfef5b7a79bc3a56d324c325b970415692e48b9dd85102bd07fbaa7b05c6093697355
 2018-06-29 22:26:46  Running SecretStore with disabled ACL check: everyone has access to stored keys
-2018-06-29 22:26:46  Public node URL: enode://58815b57d8af2bc04963bde42b27deca674c18dca4098b8891296479ce0a83c2398a141babb835f181c6447bb1ac2ce4dca88ec20908d41b86166018d842fab4@192.168.2.112:30303
+2018-06-29 22:26:46  Public node URL: enode://58815b57d8af2bc04963bde42b27deca674c18dca4098b8891296479ce0a83c2398a141babb835f181c6447bb1ac2ce4dca88ec20908d41b86166018d842fab4@127.0.0.1:30303
 2018-06-29 22:27:16     2/25 peers   10 KiB chain 31 KiB db 0 bytes queue 10 KiB sync  RPC:  0 conn,    0 req/s,    0 µs
 2018-06-29 22:27:46     2/25 peers   10 KiB chain 31 KiB db 0 bytes queue 10 KiB sync  RPC:  0 conn,    0 req/s,    0 µs
 2018-06-29 22:28:16     2/25 peers   10 KiB chain 31 KiB db 0 bytes queue 10 KiB sync  RPC:  0 conn,    0 req/s,    0 µs
@@ -447,7 +447,7 @@ Most interestingly, `2/25 peers` means that this node is connected with the 2 ot
 Here is an overview of the ports used by each node of the system configured in this section. Note that each user has the same ports as they will use the same node (not at the same time though). The RPC HTTP API port (8545) gives access to the Parity client's internal RPC API methods. SS1 exposes an HTTP API the users will use later on.
 ![system port overview](images/ss-overview-1.jpg)
 
-|[ < Previous Step (Tutorial overview)](Secret-Store-Tutorial-overview) | [Next Step (Alice encrypts the secret document) > ](Secret-Store-Tutorial-2)|
+|[ < Previous Step (Tutorial overview)](Secret-Store-Tutorial-overview) | [Next Step (Document encryption) > ](Secret-Store-Tutorial-2)|
 
 
 

@@ -69,5 +69,5 @@ Date: Thu, 28 Jun 2018 16:06:44 GMT
 "\"Consensus unreachable\""
 ```
 
-|[ < Previous Step (Bob retrieves the document's key)](Secret-Store-Tutorial-3)|
+|[ < Part 3 (Key retrieval)](Secret-Store-Tutorial-3)|
 
