@@ -447,7 +447,7 @@ Most interestingly, `2/25 peers` means that this node is connected with the 2 ot
 Here is an overview of the ports used by each node of the system configured in this section. Note that each user has the same ports as they will use the same node (not at the same time though). The RPC HTTP API port (8545) gives access to the Parity client's internal RPC API methods. SS1 exposes an HTTP API the users will use later on.
 ![system port overview](images/ss-overview-1.jpg)
 
-|[ < Previous Step (Tutorial overview)](Secret-Store-Tutorial-overview.md) | [Next Step (Document encryption) > ](Secret-Store-Tutorial-2.md)|
+|[ < Tutorial overview](Secret-Store-Tutorial-overview.md) | [Part 2 - Document encryption > ](Secret-Store-Tutorial-2.md)|
 
 
 

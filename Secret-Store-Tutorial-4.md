@@ -157,5 +157,5 @@ Date: Thu, 28 Jun 2018 16:06:44 GMT
 
 Charlie gets an HTTP Header 403 forbidden, he can not access the keys.
 
-|[ < Part 3 (Key retrieval)](Secret-Store-Tutorial-3.md)|
+|[ < Part 3 - Key retrieval](Secret-Store-Tutorial-3.md)|
 

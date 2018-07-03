@@ -136,5 +136,5 @@ Here is a flow diagram that represents what calls Alice has performed either to 
 ![system overview](images/ss-overview-2.jpg)
 
 
-|[ < Part 1 (Configuring each node)](Secret-Store-Tutorial-1.md) | [ Part 3 (Key retrieval) > ](Secret-Store-Tutorial-3.md)|
+|[ < Part 1 - Configuring each node](Secret-Store-Tutorial-1.md) | [ Part 3 - Key retrieval > ](Secret-Store-Tutorial-3.md)|
 

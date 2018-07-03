@@ -54,7 +54,7 @@ The overall picture of this tutorial is the following:
     * [5.2 Test with Charlie](Secret-Store-Tutorial-4.md#52-test-with-charlie)
 
 
-|[Next Step (Configuring each node) > ](Secret-Store-Tutorial-1.md)|
+|[Part 1 - Configuring each node > ](Secret-Store-Tutorial-1.md)|
 
 
 

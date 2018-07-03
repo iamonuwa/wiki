@@ -102,6 +102,6 @@ Here is a flow diagram that represents what calls Bob has performed either to hi
 ![system overview](images/ss-overview-3.jpg)
 
 
-|[ < Part 2 (Document encryption)](Secret-Store-Tutorial-2.md) | [ Part 4 (Introducing permissionning) > ](Secret-Store-Tutorial-4.md)|
+|[ < Part 2 - Document encryption](Secret-Store-Tutorial-2.md) | [ Part 4 - Introducing permissionning > ](Secret-Store-Tutorial-4.md)|
 
 
