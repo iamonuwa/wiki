@@ -5,11 +5,11 @@ title: Part 2 - Document encryption
 
 Alice's Secret Document is the following text: "mySecretDocument"
 
-In this section, we will let the Secret Store generate en encryption key any use it to encrypt the document. We will also associate the document with the generated key in order for a 3rd party to be able to retrieve the decryption key (Step 3). 
+In this section, we will generate an encryption key based on the Secret Store  Server key and encrypt the document. We will also associate the document with the generated key in order for a 3rd party to be able to retrieve the decryption key (Step 3). 
 
 ## 1. Chose a Document key id for this document
 
-We will need to identify this specific document on the Secret Store with a 64 character. This `Document key id` will be used often thoughout this tutorial. A good candidate for the `Document key id` is the hash of this document. Let's generate its sha256 hash as a `Document key id` using the following command:
+We will need to identify this specific document on the Secret Store with a 64 character. This `Document key id` will be used often throughout this tutorial. A good candidate for the `Document key id` is the hash of this document. Let's generate its sha256 hash as a `Document key id` using the following command:
 ```bash 
 echo -n mySecretDocument | sha256sum
 45ce99addb0f8385bd24f30da619ddcc0cadadab73e2a4ffb7801083086b3fc2
@@ -20,7 +20,7 @@ Every call to the Secret Store will contain this id (`45ce99a..86b3fc2`), in ord
 ## 2. Get the server key for this document
 
 At this stage, it is very important to understand when we interact with the Secret Store (using ss1's HTTP API and port 8010) and when we use the HTTP JSON-RPC API from Alice's node (using the port 8545).
-- Any call to `http://localhost:8010` that has arguments in the url is a call to ss1 node (at step 2.2 to generate a key from the Secret Store for instance).
+- Any call to `http://localhost:8010` that has arguments in the url is a call to the ss1 node (at step 2.2 to generate a key from the Secret Store for instance).
 - Any call to `http://127.0.0.1:8545` with JSON-RPC data and a method name such as `secretstore_signRawHash` is a local call from a user to its own node.
 
 ### 2.1 Sign the Document Key id
@@ -130,7 +130,7 @@ Here:
 All Secret Store servers should show something like:
 `0x83a0…75b4: encryption session completed`
 
-## Section overview
+## 6. Section overview
 
 Here is a flow diagram that represents what calls Alice has performed either to her own Parity node or to the Secret Store.
 ![system overview](images/ss-overview-2.jpg)

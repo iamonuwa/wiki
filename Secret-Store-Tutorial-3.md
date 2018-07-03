@@ -96,7 +96,7 @@ mySecretDocument #HOORAY !!
 
 
 
-## Section overview
+## 4. Section overview
 
 Here is a flow diagram that represents what calls Bob has performed either to his own Parity node or to the Secret Store.
 ![system overview](images/ss-overview-3.jpg)

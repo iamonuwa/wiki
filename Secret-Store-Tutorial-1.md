@@ -2,7 +2,7 @@
 title: Part 1 - Configuring each node
 ---
 
-## Enable the Secret Store feature of Parity
+## 1. Enable the Secret Store feature of Parity
 
 Per default, Parity Ethereum client is built without the Secret Store feature. To enable it, you need to build it from the sources and specifically enable the Secret Store.
 
@@ -18,7 +18,7 @@ $ cargo build --features secretstore --release
 You can then launch the freshly built parity using `$ ./target/release/parity [OPTION]`.
 In the following steps of the tutorial, `./target/release/` will be omitted for better readability.
 
-## Create and configure the users' nodes
+## 2. Create and configure the users' nodes
 
 In this tutorial, all nodes will run on 1 single machine. We will need to handle the networking ports carefully to avoid conflicts.
 
@@ -68,12 +68,12 @@ You now have 3 accounts for your 3 users, we will use these addresses in this tu
 | Charlie 	| charliepwd 	| 0xdab0055e3abb40d7281b058bb5e6966c50582951 	|
 
 
-## Create and configure the Secret Store nodes
+## 3. Create and configure the Secret Store nodes
 
 As all the Secret Store nodes (ss1, ss2 and ss3) need to run simultaneously, we will have to create 3 different configuration files and make sure the networking ports do not conflict.
 The configuration for ss1 will be a little different than the 2 others as this node will be open to receive calls from the users.
 
-### Configuration file for the Secret Store node 1
+### 3.1 Configuration file for the Secret Store node 1
 Let's create the file `ss1.toml` with the following content:
 ```toml
 [parity]
@@ -130,7 +130,7 @@ Repeat password: # type again
 
 We will need to create a password file also for the account to be autonomously usable by the Secret Store node to sign messages. 
 
-Run the folowing command to create a file named `ss1.pwd` containing the password `ss1pwd`:
+Run the following command to create a file named `ss1.pwd` containing the password `ss1pwd`:
 
 ```bash
  echo "ss1pwd" > ss1.pwd
@@ -217,7 +217,7 @@ Note the last 3 lines give interesting information:
 - `Starting SecretStore node: 0x83a051ff44f...` gives you the public key of this node. Copy it as we will use it in the next step.
 - `Public node URL: enode://59ff7f71a8ce..` gives you.. well the public URL of your node! Copy it as we will use it in the next step.
 
-### Configuration file for the Secret Store node 2
+### 3.2 Configuration file for the Secret Store node 2
 
 The second and third nodes will have a very similar syntax. They will not expose any HTTP API to the outside.
 Let's create `ss2.toml` with the following content:
@@ -273,7 +273,7 @@ Repeat password: # type again
 Copy the given address, this will be the account ss2 will use to sign its messages.
 We will need to create a password file also for the account to be autonomously usable by the Secret Store node. 
 
-Run the folowing command to create a file named `ss2.pwd` containing the password `ss2pwd`:
+Run the following command to create a file named `ss2.pwd` containing the password `ss2pwd`:
 
 ```bash
  echo "ss2pwd" > ss2.pwd
@@ -293,7 +293,7 @@ password = ["ss2.pwd"]
 
 Launch the node with the updated configuration and copy somewhere the public key given after the message `Starting SecretStore node` as well as the `Public node URL`.
 
-### Configuration file for the Secret Store node 3
+### 3.3 Configuration file for the Secret Store node 3
 
 Repeat the same actions with `ss3.toml` with the following content:
 ```toml
@@ -348,7 +348,7 @@ Repeat password: # type again
 
 We will need to create a password file also for the account to be autonomously usable by the Secret Store node. 
 
-Run the folowing command to create a file named `ss3.pwd` containing the password `ss3pwd`:
+Run the following command to create a file named `ss3.pwd` containing the password `ss3pwd`:
 
 ```bash
  echo "ss3pwd" > ss3.pwd
@@ -368,7 +368,7 @@ password = ["ss3.pwd"]
 
 Launch the node with the updated configuration and note the public key given after the message `Starting SecretStore node` as well as the `Public node URL`
 
-### Add bootnodes to each configuration file
+### 4. Add bootnodes to each configuration file
 
 We now have copied all the public URLs (enodes) of our Secret Store nodes as well as their public key.
 ```bash
@@ -443,7 +443,7 @@ Loading config file from ss3.toml
 
 Most interestingly, `2/25 peers` means that this node is connected with the 2 others on the blockchain.
 
-## Network overview
+## 5. Network overview
 Here is an overview of the ports used by each node of the system configured in this section. Note that each user has the same ports as they will use the same node (not at the same time though). The RPC HTTP API port (8545) gives access to the Parity client's internal RPC API methods. SS1 exposes an HTTP API the users will use later on.
 ![system port overview](images/ss-overview-1.jpg)
 
