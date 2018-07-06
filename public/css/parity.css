@@ -12,6 +12,41 @@ nav.sidebar-nav {
   padding-right: 30px;
 }
 
+nav.sidebar-nav > ul > li {
+  display: block;
+  transition-duration: 0.5s;
+  list-style-type: none;
+}
+
+nav.sidebar-nav > ul > li:hover {
+  cursor: pointer;
+}
+
+nav.sidebar-nav > ul > li:before {
+  content: "\25BA \0020";
+  font-size: 8px;
+  position: absolute;
+  top: 5px;
+  left: -10px;
+}
+
+nav.sidebar-nav > ul > li > ul {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
+  display: none;
+}
+
+nav.sidebar-nav > ul > li:hover > ul, .nav.sidebar-nav > ul > li > ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+nav.sidebar-nav > ul > li > ul > li {
+  clear: both;
+}
+
 nav.sidebar-nav h2, nav.sidebar-nav h3 {
   color: white;
 }
@@ -88,7 +123,7 @@ code {
   opacity: 0;
   font-size: 0.8em;
   color: grey;
-
+  transition: opacity 0.2s ease-in-out 0.1s;
   -webkit-transition: opacity 0.2s ease-in-out 0.1s;
   -moz-transition: opacity 0.2s ease-in-out 0.1s;
   -ms-transition: opacity 0.2s ease-in-out 0.1s;
