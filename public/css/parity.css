@@ -12,40 +12,14 @@ nav.sidebar-nav {
   padding-right: 30px;
 }
 
-/* nav.sidebar-nav > h2:hover,
-nav.sidebar-nav h2:hover ~ ul {
-  background: gray;
-} */
-
-/* nav.sidebar-nav:focus h2,
-nav.sidebar-nav:focus h3 {
-  pointer-events: none;
-}
-nav.sidebar-nav > h2:focus ul,
-nav.sidebar-nav > h3:focus ul {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-nav.sidebar-nav > h2 > ul,
-nav.sidebar-nav > h3 > ul {
-  z-index: 1;
-  opacity: 0;
-  visibility: hidden;
-  transition: visibility 0.5s;
-} */
-
 nav.sidebar-nav > ul > li {
   display: block;
   transition-duration: 0.5s;
-  list-style-type: none;
 }
 
 nav.sidebar-nav > ul > li:hover {
   cursor: pointer;
 }
-
 
 nav.sidebar-nav > ul > li:before {
   position: absolute;
@@ -62,37 +36,15 @@ nav.sidebar-nav > ul > li > ul > li > ul > li > ul {
   display: none;
 }
 
-nav.sidebar-nav > ul > li:hover > ul, 
-nav.sidebar-nav > ul > li > ul:hover,
-nav.sidebar-nav > ul > li > ul > li:hover > ul, 
-nav.sidebar-nav > ul > li > ul > li > ul:hover,
-nav.sidebar-nav > ul > li > ul > li > ul > li:hover > ul, 
-nav.sidebar-nav > ul > li > ul > li > ul > li > ul:hover {
-  visibility: visible;
-  opacity: 1;
-  display: block;
+.open {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
 }
-
-nav.sidebar-nav > ul > li > ul > li,
-nav.sidebar-nav > ul > li > ul > li > ul > li,
-nav.sidebar-nav > ul > li > ul > li > ul > li > ul > li {
+nav.sidebar-nav > ul > li {
   list-style: none;
   clear: both;
 }
-
-/* nav.sidebar-nav > ul > li > ul > li > ul {
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.5s ease;
-  display: none;
-} */
-
-/* nav.sidebar-nav > ul > li > ul > li:hover > ul, 
-nav.sidebar-nav > ul > li > ul > li > ul:hover {
-  visibility: visible;
-  opacity: 1;
-  display: block;
-} */
 
 nav.sidebar-nav h2, nav.sidebar-nav h3 {
   color: white;

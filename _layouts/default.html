@@ -103,6 +103,23 @@
         }
       }
     };
+    $(document).ready(function() {
+      $('.sidebar-nav ul li').on('click', function(e) {
+        $(this).children('li').next('ul').toggle();
+        if ($('.sidebar-nav ul li ul').children('li').has('ul')) {
+          $('.sidebar-nav ul li ul.open').attr({ 'style': 'list-style-type: none' })
+          $('.sidebar-nav ul li ul li')
+            .has('ul')
+            .find('li')
+            .innerHTML = "<i class=\"fa fa-link\"></i>";
+          
+        }
+        if ($(this).parent('ul').hasClass('open')) {
+          e.stopPropagation();
+        }
+        $(this).children('ul').toggleClass('open');
+      });
+    });
   </script>
 </body>
 
